@@ -41,7 +41,7 @@ test("legal routes render in English and Persian", async () => {
   for (const route of ["/terms", "/privacy", "/terms?lang=fa", "/privacy?lang=fa"]) {
     const response = await fetch(baseUrl + route);
     assert.equal(response.status, 200, route);
-    assert.match(response.headers.get("content-type") ?? "", /text\\/html/);
+    assert.ok((response.headers.get("content-type") ?? "").includes("text/html"));
   }
 });
 
