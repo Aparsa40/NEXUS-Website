@@ -72,9 +72,10 @@ function shell(language: Language, title: string, content: string): string {
 
 export function renderHomePage(language: Language): string {
   const t = labels[language];
-  const cards = t.cards.map(([title, description], index) =>
+  const cards = t.cards.map((card, index) =>
     "<article class='capability-card'><span class='card-index'>0" + (index + 1) +
-    "</span><h3>" + title + "</h3><p>" + description + "</p></article>"
+    "</span><h3>" + String(card[0] ?? "") + "</h3><p>" +
+    String(card[1] ?? "") + "</p></article>"
   ).join("");
 
   const content = `
