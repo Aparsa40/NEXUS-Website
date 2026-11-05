@@ -6,9 +6,10 @@ Official bilingual website and legal documentation for **NEXUS-AI**.
 
 ## Project status
 
-**Initial implementation — v0.1.0**
+### **Initial implementation — v0.1.0**
 
 The site currently includes:
+
 - A bilingual (English/Persian) project overview.
 - Terms of Service at /terms.
 - Privacy Policy at /privacy.
@@ -39,7 +40,7 @@ On Windows PowerShell:
     npm install
     npm run dev
 
-Open http://localhost:3000.
+Open `http://127.0.0.1:3000.`
 
 ## Scripts
 
