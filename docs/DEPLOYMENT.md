@@ -1,31 +1,72 @@
-# Render deployment
+# Production deployment — Render
 
-## Service settings
+This document records the current production deployment contract for the NEXUS-AI website.
 
-Create a Node Web Service from the private GitHub repository Aparsa40/NEXUS-Website.
+## Production service
 
 | Setting | Value |
 | --- | --- |
-| Runtime | Node |
-| Branch | main, after the initial branch is reviewed and merged |
-| Build command | npm install && npm run build |
-| Start command | npm start |
-| Health check path | /healthz |
-| Node version | 22 |
+| Provider | Render |
+| Workspace | `NEXUS-AI` |
+| Project | `NEXUS` |
+| Environment | `Production` |
+| Service | `nexus-website` |
+| Service type | Node.js Web Service |
+| Plan | Free |
+| Repository | `https://github.com/Aparsa40/NEXUS-Website` |
+| Deploy branch | `main` |
+| Region | Oregon |
+| Root directory | Repository root |
+| Build command | `npm install && npm run build` |
+| Start command | `npm run start` |
+| Health check path | `/healthz` |
+| Public URL | `https://nexus-website-1406.onrender.com` |
 
-Render provides the PORT environment variable. The server binds to 0.0.0.0.
+Render auto-deploy is configured to deploy the `main` branch after CI checks pass. Feature branches do not replace the production site unless they are merged into `main`.
 
-## Before deployment
+## Runtime
 
-1. Review and merge the initial website branch after CI passes.
-2. Connect the repository to Render.
-3. Confirm the service URL and HTTPS certificate.
-4. Open /, /terms, /privacy, and /healthz on the deployed hostname.
-5. Add the final Terms of Service and Privacy Policy URLs to the Discord Developer Portal.
+The supported runtime is Node.js 22.x. The repository pins this through `.node-version`, the `engines.node` field in `package.json`, and the GitHub Actions workflow. Keep those settings aligned when upgrading Node.js.
 
-## Operational notes
+Render supplies the `PORT` environment variable. The server validates it and listens on `0.0.0.0`.
 
-- No database is required for the current site.
-- No secrets are required for the current site.
-- The site sends X-Robots-Tag: noindex, follow and includes a matching HTML robots meta tag. This discourages search indexing without blocking Discord from fetching legal pages.
-- Render free instances may sleep when idle; allow for a cold start when validating Discord's URL checks.
+## Environment variables and secrets
+
+No application secrets or external credentials are required by the current website. The only optional local variables are:
+
+- `PORT` — local HTTP port; defaults to `3000`.
+- `NODE_ENV` — local runtime mode.
+
+Do not add Discord, GitHub, or OpenRouter credentials to this website service. Those belong to the separate bot runtime.
+
+## Deployment procedure
+
+1. Make changes on a feature branch.
+2. Run `npm ci`, `npm run check`, `npm test`, and `npm run build`.
+3. Open a pull request targeting `main`.
+4. Wait for the CI workflow to pass and review the diff.
+5. Merge the pull request only after approval.
+6. Confirm Render deploys the new `main` commit after CI checks pass.
+7. Verify the public routes and health endpoint listed below.
+
+Do not manually deploy an unreviewed feature branch to the production service.
+
+## Production smoke tests
+
+Open each URL after a deployment:
+
+- `/` — English home page.
+- `/?lang=fa` — Persian home page (RTL).
+- `/terms` and `/terms?lang=fa` — Terms of Service.
+- `/privacy` and `/privacy?lang=fa` — Privacy Policy.
+- `/healthz` — JSON health response with status `ok`.
+- `/styles.css` — public stylesheet.
+
+Also verify that the language switch remains on the current page, policy navigation works, and unknown routes return HTTP 404.
+
+## Operational limitations
+
+- Render Free Web Services may spin down when idle; the first request after inactivity can be slower.
+- The website has no persistent application data and no database.
+- `X-Robots-Tag: noindex, follow` and the HTML robots meta tag discourage search indexing. They do not require authentication and must not prevent Discord from fetching the policy pages.
+- The Render service is managed separately from the NEXUS Discord bot. Updating this website does not deploy or modify the bot.
