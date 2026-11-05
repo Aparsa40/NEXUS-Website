@@ -1,84 +1,114 @@
-# NEXUS-Website
+# NEXUS-AI Website
 
-Official bilingual website and legal documentation for **NEXUS-AI**.
+Official bilingual (English and Persian) website and public legal documentation for the [NEXUS-AI Discord bot](https://github.com/Aparsa40/NEXUS).
 
-> The repository is private. The deployed website and legal URLs are intended to be reachable publicly by Discord and users who need to review the policies. Search indexing is discouraged with a noindex directive.
+**Website:** https://nexus-website-1406.onrender.com  
+**Release:** 1.0.0 (initial public website release candidate)
 
-## Project status
+> This is the public source repository for the website. The deployed site is intended to provide Discord users and platform reviewers with accessible project information, Terms of Service, and Privacy Policy pages. Search indexing is intentionally discouraged; the pages remain publicly accessible.
 
-### **Initial implementation — v0.1.0**
+## What is included
 
-The site currently includes:
+- Responsive project overview in English and Persian.
+- English and Persian Terms of Service.
+- English and Persian Privacy Policy.
+- Express 5 server with security headers.
+- Health endpoints for hosting checks.
+- Automated HTTP tests and GitHub Actions CI.
+- Render deployment documentation and Discord Developer Portal URL reference.
 
-- A bilingual (English/Persian) project overview.
-- Terms of Service at /terms.
-- Privacy Policy at /privacy.
-- Health endpoints at /healthz and /api/health.
-- Responsive styling, baseline security headers, automated tests, and CI.
+## Public routes
 
-The legal pages describe the current bot behavior observed in Aparsa40/NEXUS. They must be reviewed whenever the bot's integrations, data flows, storage, or GitHub write behavior changes.
+| Page | English | Persian |
+| --- | --- | --- |
+| Home | [Open](https://nexus-website-1406.onrender.com/?lang=en) | [باز کردن](https://nexus-website-1406.onrender.com/?lang=fa) |
+| Terms of Service | [Open](https://nexus-website-1406.onrender.com/terms) | [باز کردن](https://nexus-website-1406.onrender.com/terms?lang=fa) |
+| Privacy Policy | [Open](https://nexus-website-1406.onrender.com/privacy) | [باز کردن](https://nexus-website-1406.onrender.com/privacy?lang=fa) |
+| Health check | [JSON](https://nexus-website-1406.onrender.com/healthz) | — |
 
-## Technology
+The canonical policy URLs for Discord Developer Portal are documented in [docs/DISCORD-DEVELOPER-PORTAL.md](docs/DISCORD-DEVELOPER-PORTAL.md).
 
-- Node.js 22+
+## Technology and runtime
+
+- Node.js 22.x
 - TypeScript (strict mode)
 - Express 5
 - Helmet
-- Node test runner via tsx
+- Node.js test runner through `tsx`
+
+The supported runtime is pinned to Node.js 22.x through `.node-version`, `package.json`, and CI.
 
 ## Local development
 
-Install dependencies and start the development server:
+Requirements: Node.js 22.x and npm.
 
-    npm install
-    cp .env.example .env
-    npm run dev
+Windows PowerShell:
 
-On Windows PowerShell:
+```powershell
+git clone https://github.com/Aparsa40/NEXUS-Website.git
+Set-Location NEXUS-Website
+npm ci
+Copy-Item .env.example .env
+npm run dev
+```
 
-    Copy-Item .env.example .env
-    npm install
-    npm run dev
+macOS / Linux:
 
-Open `http://127.0.0.1:3000.`
+```bash
+git clone https://github.com/Aparsa40/NEXUS-Website.git
+cd NEXUS-Website
+npm ci
+cp .env.example .env
+npm run dev
+```
 
-## Scripts
+Open http://127.0.0.1:3000.
 
-| Command | Purpose |
-| --- | --- |
-| npm run dev | Start the development server with watch mode. |
-| npm run check | Run the TypeScript type check. |
-| npm test | Run HTTP route tests. |
-| npm run build | Compile TypeScript into dist/. |
-| npm start | Start the compiled production server. |
+The website does not require application credentials, a database, or third-party API keys. `.env.example` only documents the optional local `PORT` and `NODE_ENV` settings.
 
-## Routes
+## Quality checks
 
-| Route | Description |
-| --- | --- |
-| / | Project overview (use ?lang=en or ?lang=fa). |
-| /terms | Terms of Service. |
-| /privacy | Privacy Policy. |
-| /healthz | Hosting health check. |
-| /api/health | JSON health response. |
+Run these commands before submitting changes:
+
+```bash
+npm ci
+npm run check
+npm test
+npm run build
+```
+
+GitHub Actions runs the same typecheck, test, and build sequence on pushes to the maintained branches and on pull requests targeting `main`.
 
 ## Render deployment
 
-See docs/DEPLOYMENT.md. Recommended settings:
+The production service is hosted as a Render Free Web Service:
 
-- Build: npm install && npm run build
-- Start: npm start
-- Health check: /healthz
+- Repository: `Aparsa40/NEXUS-Website`
+- Branch: `main`
+- Build command: `npm install && npm run build`
+- Start command: `npm run start`
+- Health check: `/healthz`
+- Region: Oregon
+- Service URL: https://nexus-website-1406.onrender.com
 
-No database or application secrets are required by the current website.
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the deployment contract, smoke tests, and operational limitations. Production auto-deploy is configured to run after CI checks pass.
 
-## Security and legal notes
+## Security and privacy
 
-- Do not commit .env files, Discord tokens, GitHub tokens, or AI provider keys.
-- The website does not currently use analytics, user accounts, cookies, forms, or a database.
-- Legal pages are operational descriptions, not legal advice. Review them against the deployed bot configuration before submitting them for platform verification.
-- See SECURITY.md for vulnerability reporting guidance.
+- Never commit `.env` files, Discord tokens, GitHub tokens, or AI provider keys.
+- The website currently has no user accounts, forms, analytics integration, application database, or application-managed cookies.
+- The bot's actual data flows are described in the legal pages. Re-review those pages whenever the bot's integrations, permissions, storage, or GitHub write workflow changes.
+- The site sends `X-Robots-Tag: noindex, follow` and includes a matching HTML robots directive. This discourages search indexing without blocking public access to the legal pages.
+- See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance.
+
+## Documentation
+
+- [Deployment](docs/DEPLOYMENT.md)
+- [Discord Developer Portal URLs](docs/DISCORD-DEVELOPER-PORTAL.md)
+- [Versioning and releases](docs/VERSIONING.md)
+- [Security policy](SECURITY.md)
+- [Changelog](CHANGELOG.md)
 
 ## License
 
-This repository is marked UNLICENSED. No permission to reuse or redistribute the source is granted by default.
+All rights reserved. The repository is public for inspection and deployment; public visibility does not grant permission to copy, modify, distribute, or use the source. See [LICENSE](LICENSE).
