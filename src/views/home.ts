@@ -173,7 +173,7 @@ export function renderNexusHome(language: Language): string {
 </section>
 
 <section class="search-section" aria-labelledby="search-title">
-  <div class="search-heading"><span class="eyebrow">${t.searchLabel}</span><span class="search-shortcut">⌕</span></div>
+  <div class="search-heading"><span class="eyebrow" id="search-title">${t.searchLabel}</span><span class="search-shortcut">⌕</span></div>
   <label class="search-box" for="site-search"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="${t.searchPlaceholder}" autocomplete="off"><kbd>↵</kbd></label>
   <p class="search-hint" id="search-status" aria-live="polite">${t.searchHint}</p>
 </section>
