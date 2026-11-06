@@ -132,7 +132,7 @@ button, input { font: inherit; }
 @media (max-width: 680px) {
   .site-header, .page-shell, .site-footer { width: min(100% - 34px, 560px); }
   .site-header { height: 72px; gap: 12px; }.brand { font-size: 14px; gap: 7px; }.brand-symbol { width: 31px; height: 31px; border-radius: 9px; }
-  .main-nav { gap: 13px; font-size: 10px; }.main-nav a:nth-child(4) { display: none; }
+  .main-nav { gap: 13px; font-size: 10px; }
   .language-switch { padding: 7px 9px; font-size: 10px; }.page-shell { padding: 48px 0 65px; }
   .hero { grid-template-columns: 1fr; gap: 34px; min-height: 0; }.hero h1 { font-size: clamp(39px, 11vw, 57px); }.hero-intro { font-size: 14px; }
   .hero-visual { min-height: 300px; }.orbit-two { width: 290px; height: 290px; }.orbit-one { width: 220px; height: 220px; }
