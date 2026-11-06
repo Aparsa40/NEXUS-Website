@@ -137,7 +137,7 @@ function shell(language: Language, content: string): string {
 <footer class="site-footer">
 <a class="brand brand-small" href="/"><span class="brand-symbol">N</span><span>NEXUS<span class="brand-dot">.</span></span></a>
 <span>${t.footer}</span>
-<div class="footer-links"><a href="/terms?lang=${language}">${t.legal}</a><a href="https://github.com/Aparsa40/NEXUS-Website" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
+<div class="footer-links"><a href="/terms?lang=${language}">${language === "fa" ? "شرایط استفاده" : "Terms"}</a><a href="/privacy?lang=${language}">${language === "fa" ? "حریم خصوصی" : "Privacy"}</a><a href="https://github.com/Aparsa40/NEXUS-Website" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
 </footer>
 </body></html>`;
 }
@@ -201,7 +201,7 @@ export function renderNexusHome(language: Language): string {
 
 <section class="about-panel" id="about">
   <div><p class="eyebrow">${t.aboutEyebrow}</p><h2>${t.aboutTitle}</h2></div>
-  <div><p>${t.aboutText}</p><a class="text-link" href="mailto:hello@nexus.local" aria-label="${t.contact}">${t.contact} <span aria-hidden="true">↗</span></a></div>
+  <div><p>${t.aboutText}</p><a class="text-link" href="https://github.com/Aparsa40" target="_blank" rel="noopener noreferrer" aria-label="${t.contact}">${t.contact} <span aria-hidden="true">↗</span></a></div>
 </section>`;
   return shell(language, content);
 }
