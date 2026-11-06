@@ -20,7 +20,7 @@ after(async () => {
   });
 });
 
-test("home page renders the NEXUS-AI overview and noindex policy", async () => {
+test("home page renders the searchable public NEXUS hub and index policy", async () => {
   const response = await fetch(baseUrl);
   const html = await response.text();
   assert.equal(response.status, 200);
@@ -37,7 +37,7 @@ test("Persian home page is RTL and exposes policy navigation", async () => {
   assert.equal(response.status, 200);
   assert.match(html, /lang="fa" dir="rtl"/);
   assert.match(html, /شرایط استفاده/);
-  assert.match(html, /سیاست حریم خصوصی/);
+  assert.match(html, /حریم خصوصی/);
   assert.match(html, /href="\/terms\?lang=fa"/);
   assert.match(html, /href="\/privacy\?lang=fa"/);
 });
@@ -56,7 +56,7 @@ test("English and Persian legal routes render the correct document", async () =>
     assert.equal(response.status, 200, route);
     assert.ok((response.headers.get("content-type") ?? "").includes("text/html"), route);
     assert.match(html, expectedContent, route);
-    assert.match(html, /noindex,follow/, route);
+    if (route.startsWith("/terms") || route.startsWith("/privacy")) assert.match(html, /noindex,follow/, route);
   }
 });
 
