@@ -24,9 +24,11 @@ test("home page renders the searchable public NEXUS hub and index policy", async
   const response = await fetch(baseUrl);
   const html = await response.text();
   assert.equal(response.status, 200);
-  assert.match(html, /NEXUS-AI/);
-  assert.match(html, /noindex,follow/);
-  assert.equal(response.headers.get("x-robots-tag"), "noindex, follow");
+  assert.match(html, /Personal AI & Technology Hub/);
+  assert.match(html, /Projects & experiments/);
+  assert.match(html, /site-search/);
+  assert.match(html, /index,follow/);
+  assert.equal(response.headers.get("x-robots-tag"), null);
   assert.equal(response.headers.get("x-powered-by"), null);
   assert.match(response.headers.get("content-security-policy") ?? "", /default-src 'self'/);
 });
