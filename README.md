@@ -1,15 +1,17 @@
 # NEXUS-AI Website
 
-Official bilingual (English and Persian) website and public legal documentation for the [NEXUS-AI Discord bot](https://github.com/Aparsa40/NEXUS).
+A bilingual personal AI and technology hub for software projects, development tools, field notes, and practical knowledge. The site also retains the legal pages required by the NEXUS Discord application.
 
 **Website:** https://nexus-website-1406.onrender.com  
 **Release:** 1.0.0 (initial public website release candidate)
 
-> This is the public source repository for the website. The deployed site is intended to provide Discord users and platform reviewers with accessible project information, Terms of Service, and Privacy Policy pages. Search indexing is intentionally discouraged; the pages remain publicly accessible.
+> This is the public source repository for the website. The deployed site is the central public-facing home for the NEXUS development ecosystem. The homepage is indexable; legal pages remain publicly accessible and retain their own noindex directives.
 
 ## What is included
 
-- Responsive project overview in English and Persian.
+- Responsive personal technology hub in English and Persian.
+- Searchable project cards and quick-access platform shortcuts.
+- Field-notes / practical knowledge section reserved for the next phase.
 - English and Persian Terms of Service.
 - English and Persian Privacy Policy.
 - Express 5 server with security headers.
@@ -96,9 +98,9 @@ See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the deployment contract, smoke 
 ## Security and privacy
 
 - Never commit `.env` files, Discord tokens, GitHub tokens, or AI provider keys.
-- The website currently has no user accounts, forms, analytics integration, application database, or application-managed cookies.
+- The website currently has no user accounts, working contact form, analytics integration, application database, or application-managed cookies. Platform shortcuts currently open official platform websites; personal profile URLs are to be configured separately.
 - The bot's actual data flows are described in the legal pages. Re-review those pages whenever the bot's integrations, permissions, storage, or GitHub write workflow changes.
-- The site sends `X-Robots-Tag: noindex, follow` and includes a matching HTML robots directive. This discourages search indexing without blocking public access to the legal pages.
+- The public homepage allows search indexing. Legal pages retain page-level `noindex` metadata.
 - See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance.
 
 ## Documentation
