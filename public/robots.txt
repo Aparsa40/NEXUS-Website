@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# The site uses noindex directives while keeping legal URLs reachable.
+# Public homepage is indexable; legal pages carry page-level noindex metadata.
