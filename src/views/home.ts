@@ -217,20 +217,20 @@ export function renderNexusHome(language: Language): string {
 
 <dialog class="about-dialog" id="about-dialog" aria-labelledby="about-dialog-title">
   <div class="about-dialog-header">
-    <span class="eyebrow">\${t.aboutEyebrow}</span>
-    <button class="dialog-close" type="button" data-about-close aria-label="\${t.aboutClose}">×</button>
+    <span class="eyebrow">${t.aboutEyebrow}</span>
+    <button class="dialog-close" type="button" data-about-close aria-label="${t.aboutClose}">×</button>
   </div>
   <div class="about-dialog-body">
     <img class="about-dialog-logo" src="/assets/brand/nexus-symbol.png" alt="" width="76" height="76">
-    <p class="about-role">\${t.aboutRole}</p>
-    <h2 id="about-dialog-title">\${language === "fa" ? "سلام، من امیر پارسا هستم." : "Hello, I’m Amir Parsa."}</h2>
-    <p>\${t.aboutBio}</p>
-    <p>\${t.aboutApproach}</p>
+    <p class="about-role">${t.aboutRole}</p>
+    <h2 id="about-dialog-title">${language === "fa" ? "سلام، من امیر پارسا هستم." : "Hello, I’m Amir Parsa."}</h2>
+    <p>${t.aboutBio}</p>
+    <p>${t.aboutApproach}</p>
     <div class="about-dialog-actions">
-      <a class="button button-primary" href="mailto:parssynapse@gmail.com">\${t.aboutEmail}<span aria-hidden="true">↗</span></a>
-      <a class="button button-secondary" href="https://linkedin.com/in/amir.hosein.parsa.motlagh" target="_blank" rel="noopener noreferrer">\${t.aboutProfile}<span aria-hidden="true">↗</span></a>
+      <a class="button button-primary" href="mailto:parssynapse@gmail.com">${t.aboutEmail}<span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="https://linkedin.com/in/amir.hosein.parsa.motlagh" target="_blank" rel="noopener noreferrer">${t.aboutProfile}<span aria-hidden="true">↗</span></a>
     </div>
-    <p class="dialog-hint">\${t.aboutCloseHint}</p>
+    <p class="dialog-hint">${t.aboutCloseHint}</p>
   </div>
 </dialog>
 `;
