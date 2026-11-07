@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { renderHomePage, renderLegalPage } from "../views/pages.js";
+import { renderNexusHome } from "../views/home.js";
+import { renderLegalPage } from "../views/pages.js";
 
 export const pagesRouter = Router();
 
@@ -8,7 +9,7 @@ function getLanguage(value: unknown): "en" | "fa" {
 }
 
 pagesRouter.get("/", (request, response) => {
-  response.status(200).type("html").send(renderHomePage(getLanguage(request.query.lang)));
+  response.status(200).type("html").send(renderNexusHome(getLanguage(request.query.lang)));
 });
 pagesRouter.get("/terms", (request, response) => {
   response.status(200).type("html").send(renderLegalPage("terms", getLanguage(request.query.lang)));

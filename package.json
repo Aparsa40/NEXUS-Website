@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Official NEXUS-AI website and legal documentation",
+  "description": "Personal AI and technology hub for the NEXUS ecosystem",
   "license": "UNLICENSED",
   "engines": {
     "node": "22.x"

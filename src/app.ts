@@ -16,29 +16,23 @@ export function createApp(): Express {
       directives: {
         defaultSrc: ["'self'"],
         baseUri: ["'self'"],
-        fontSrc: ["'self'"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
         formAction: ["'self'"],
         frameAncestors: ["'none'"],
-        imgSrc: ["'self'", "data:"],
+        imgSrc: ["'self'", "data:", "https://trustseal.enamad.ir"],
         objectSrc: ["'none'"],
         scriptSrc: ["'self'"],
-        styleSrc: ["'self'"]
+        styleSrc: ["'self'", "https://fonts.googleapis.com"]
       }
     },
     crossOriginEmbedderPolicy: false
   }));
 
-  // Keep pages reachable to Discord while discouraging search indexing.
-  app.use((_request, response, next) => {
-    response.setHeader("X-Robots-Tag", "noindex, follow");
-    next();
-  });
-
   app.use(express.static(path.resolve(currentDirectory, "../public")));
   app.use(pagesRouter);
   app.use((_request, response) => {
     response.status(404).type("html").send(
-      "<!doctype html><html lang='en'><meta charset='utf-8'><title>Not found · NEXUS-AI</title><body><main><h1>404 — Page not found</h1><p><a href='/'>Return to NEXUS-AI</a></p></main></body></html>"
+      "<!doctype html><html lang='en'><meta charset='utf-8'><title>Not found · NEXUS</title><body><main><h1>404 — Page not found</h1><p><a href='/'>Return to NEXUS</a></p></main></body></html>"
     );
   });
   return app;
