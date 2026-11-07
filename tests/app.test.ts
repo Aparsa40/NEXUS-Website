@@ -95,12 +95,12 @@ test("unknown routes return 404", async () => {
 
 test("home page uses the NEXUS brand assets and verified personal profile links", async () => {
   const html = await (await fetch(baseUrl)).text();
-  assert.match(html, /assets\\/brand\\/nexus-logo\\.png/);
-  assert.match(html, /id="about-dialog"/);
-  assert.match(html, /amir\\.hosein\\.parsa\\.motlagh/);
-  assert.match(html, /href="https:\\/\\/x\\.com\\/aparsa"/);
-  assert.match(html, /href="mailto:parssynapse@gmail\\.com"/);
-  assert.match(html, /assets\\/icons\\/social\\/github\\.png/);
+  assert.ok(html.includes("/assets/brand/nexus-logo.png"));
+  assert.ok(html.includes('id="about-dialog"'));
+  assert.ok(html.includes("amir.hosein.parsa.motlagh"));
+  assert.ok(html.includes('href="https://x.com/aparsa"'));
+  assert.ok(html.includes('href="mailto:parssynapse@gmail.com"'));
+  assert.ok(html.includes("/assets/icons/social/github.png"));
 });
 
 test("About dialog copy is available in Persian", async () => {
