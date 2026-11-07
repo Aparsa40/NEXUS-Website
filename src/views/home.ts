@@ -137,6 +137,7 @@ function shell(language: Language, content: string): string {
 <footer class="site-footer">
 <a class="brand brand-small" href="/"><span class="brand-symbol">N</span><span>NEXUS<span class="brand-dot">.</span></span></a>
 <span>${t.footer}</span>
+<div class="footer-trust"><span>${language === "fa" ? "نماد اعتماد الکترونیکی" : "Verified business · Enamad"}</span><a href="https://trustseal.enamad.ir/?id=537474&Code=xnYUibfDjrs1zRYuHYDmaZGLmiFykpZF" aria-label="${language === "fa" ? "مشاهده نماد اعتماد الکترونیکی" : "View Enamad trust seal"}"><img src="https://trustseal.enamad.ir/logo.aspx?id=537474&Code=xnYUibfDjrs1zRYuHYDmaZGLmiFykpZF" alt="${language === "fa" ? "نماد اعتماد الکترونیکی" : "Enamad trust seal"}" loading="lazy"></a></div>
 <div class="footer-links"><a href="/terms?lang=${language}">${language === "fa" ? "شرایط استفاده" : "Terms"}</a><a href="/privacy?lang=${language}">${language === "fa" ? "حریم خصوصی" : "Privacy"}</a><a href="https://github.com/Aparsa40/NEXUS-Website" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
 </footer>
 </body></html>`;
