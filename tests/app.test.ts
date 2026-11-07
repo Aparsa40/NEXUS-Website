@@ -31,6 +31,8 @@ test("home page renders the searchable public NEXUS hub and index policy", async
   assert.equal(response.headers.get("x-robots-tag"), null);
   assert.equal(response.headers.get("x-powered-by"), null);
   assert.match(response.headers.get("content-security-policy") ?? "", /default-src 'self'/);
+  assert.match(html, /trustseal\.enamad\.ir\/logo\.aspx\?id=537474/);
+  assert.match(response.headers.get("content-security-policy") ?? "", /img-src[^;]*trustseal\.enamad\.ir/);
 });
 
 test("Persian home page is RTL and exposes policy navigation", async () => {
