@@ -19,7 +19,7 @@ export function createApp(): Express {
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         formAction: ["'self'"],
         frameAncestors: ["'none'"],
-        imgSrc: ["'self'", "data:"],
+        imgSrc: ["'self'", "data:", "https://trustseal.enamad.ir"],
         objectSrc: ["'none'"],
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "https://fonts.googleapis.com"]
