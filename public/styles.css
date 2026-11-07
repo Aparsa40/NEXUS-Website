@@ -148,3 +148,25 @@ button, input { font: inherit; }
 }
 @media (max-width: 390px) { .main-nav { gap: 8px; font-size: 9px; }.project-link { grid-template-columns: 1fr; }.project-art { min-height: 150px; }.project-copy { min-height: 190px; } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+
+/* Brand assets and accessible About dialog */
+.brand-logo { display: block; width: clamp(124px, 13vw, 156px); height: auto; max-height: 48px; object-fit: contain; }
+.brand-logo-footer { width: 116px; max-height: 38px; }
+.platform-icon { display: grid; flex: 0 0 32px; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: rgba(255,255,255,.92); overflow: hidden; }
+.platform-icon img { display: block; width: 23px; height: 23px; object-fit: contain; }
+.about-open { padding: 0; border: 0; background: transparent; cursor: pointer; font: inherit; }
+.about-dialog { width: min(620px, calc(100% - 32px)); max-width: 620px; max-height: min(82vh, 760px); padding: 0; overflow: auto; border: 1px solid rgba(198,226,163,.28); border-radius: 20px; background: #142220; color: var(--text); box-shadow: 0 28px 100px rgba(0,0,0,.55); }
+.about-dialog::backdrop { background: rgba(4,10,9,.78); backdrop-filter: blur(6px); }
+.about-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 26px 0; }
+.about-dialog-header .eyebrow { margin: 0; }
+.dialog-close { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--text); font-size: 25px; cursor: pointer; }
+.about-dialog-body { padding: 12px 32px 30px; }
+.about-dialog-logo { width: 66px; height: 66px; margin: 6px 0 14px; object-fit: contain; }
+.about-role { margin: 0 0 10px !important; color: var(--accent) !important; font-size: 12px !important; font-weight: 700; }
+.about-dialog h2 { margin: 0 0 18px; font-size: clamp(25px, 4vw, 34px); }
+.about-dialog-body > p:not(.about-role):not(.dialog-hint) { color: var(--muted); font-size: 13px; line-height: 2; }
+.about-dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.dialog-hint { margin: 20px 0 0; color: #7f9387; font-size: 10px; }
+[dir=rtl] .about-dialog { text-align: right; }
+@media (max-width: 680px) { .brand-logo { width: 116px; max-height: 40px; }.brand-logo-footer { width: 104px; }.about-dialog-body { padding: 10px 22px 24px; }.about-dialog-header { padding: 18px 20px 0; } }

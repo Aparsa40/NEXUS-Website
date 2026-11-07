@@ -28,3 +28,16 @@ if (search instanceof HTMLInputElement) {
     }
   });
 }
+
+
+const aboutDialog = document.querySelector("#about-dialog");
+const aboutOpen = document.querySelector("[data-about-open]");
+const aboutClose = document.querySelector("[data-about-close]");
+
+if (aboutDialog instanceof HTMLDialogElement) {
+  aboutOpen?.addEventListener("click", () => aboutDialog.showModal());
+  aboutClose?.addEventListener("click", () => aboutDialog.close());
+  aboutDialog.addEventListener("click", (event) => {
+    if (event.target === aboutDialog) aboutDialog.close();
+  });
+}

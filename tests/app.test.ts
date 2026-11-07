@@ -91,3 +91,20 @@ test("unknown routes return 404", async () => {
   const response = await fetch(baseUrl + "/not-a-real-page");
   assert.equal(response.status, 404);
 });
+
+
+test("home page uses the NEXUS brand assets and verified personal profile links", async () => {
+  const html = await (await fetch(baseUrl)).text();
+  assert.ok(html.includes("/assets/brand/nexus-logo.png"));
+  assert.ok(html.includes('id="about-dialog"'));
+  assert.ok(html.includes("amir.hosein.parsa.motlagh"));
+  assert.ok(html.includes('href="https://x.com/aparsa"'));
+  assert.ok(html.includes('href="mailto:parssynapse@gmail.com"'));
+  assert.ok(html.includes("/assets/icons/social/github.png"));
+});
+
+test("About dialog copy is available in Persian", async () => {
+  const html = await (await fetch(baseUrl + "/?lang=fa")).text();
+  assert.match(html, /توسعه‌دهنده فول‌استک/);
+  assert.match(html, /هوش مصنوعی را همکاری توانمند/);
+});
