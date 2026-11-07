@@ -29,7 +29,14 @@ const copy = {
     aboutEyebrow: "WHY NEXUS",
     aboutTitle: "Build, learn, document, repeat.",
     aboutText: "NEXUS is a personal workspace for building software with AI, exploring new tools, and documenting the solutions that make future work easier.",
-    contact: "Get in touch",
+    contact: "About me",
+    aboutClose: "Close",
+    aboutRole: "Full-Stack Developer & AI Solutions Builder",
+    aboutBio: "I build web applications and practical AI-powered workflows. My work moves between product engineering, exploring developer tools, and turning experiments into maintainable software. I value clear architecture, useful documentation, and learning by building.",
+    aboutApproach: "I see AI as a capable collaborator in engineering: useful for exploration, implementation, and iteration, while technical judgment, verification, and responsibility remain essential.",
+    aboutEmail: "Email me",
+    aboutProfile: "Professional profile",
+    aboutCloseHint: "Press Escape to close this window.",
     legal: "Terms & privacy",
     footer: "An independent personal technology workspace.",
     noResults: "No matching items. Try another keyword.",
@@ -63,7 +70,14 @@ const copy = {
     aboutEyebrow: "درباره NEXUS",
     aboutTitle: "بساز، یاد بگیر، مستند کن، تکرار کن.",
     aboutText: "NEXUS فضای کاری شخصی برای ساخت نرم‌افزار با کمک هوش مصنوعی، تجربه ابزارهای تازه و مستندسازی راه‌حل‌هایی است که کارهای آینده را ساده‌تر می‌کنند.",
-    contact: "راه ارتباطی",
+    contact: "درباره من",
+    aboutClose: "بستن",
+    aboutRole: "توسعه‌دهنده فول‌استک و سازنده راهکارهای هوش مصنوعی",
+    aboutBio: "من روی ساخت اپلیکیشن‌های وب و گردش‌کارهای کاربردی مبتنی بر هوش مصنوعی کار می‌کنم. فعالیت من از مهندسی محصول و بررسی ابزارهای توسعه تا تبدیل آزمایش‌ها به نرم‌افزار قابل نگهداری را در بر می‌گیرد. معماری روشن، مستندسازی مفید و یادگیری از مسیر ساخت برایم اهمیت دارند.",
+    aboutApproach: "هوش مصنوعی را همکاری توانمند در فرایند مهندسی می‌دانم؛ ابزاری برای کاوش، پیاده‌سازی و بهبود مستمر، در کنار قضاوت فنی، راستی‌آزمایی و مسئولیت‌پذیری انسان.",
+    aboutEmail: "ارسال ایمیل",
+    aboutProfile: "پروفایل حرفه‌ای",
+    aboutCloseHint: "برای بستن پنجره کلید Escape را فشار دهید.",
     legal: "شرایط استفاده و حریم خصوصی",
     footer: "یک فضای کاری مستقل و شخصی برای فناوری.",
     noResults: "موردی پیدا نشد. عبارت دیگری را امتحان کن.",
@@ -79,14 +93,10 @@ const projects = [
 ];
 
 const social = [
-  { title: "GitHub", href: "https://github.com/", group: "social", mark: "GH" },
-  { title: "LinkedIn", href: "https://www.linkedin.com/", group: "social", mark: "in" },
-  { title: "YouTube", href: "https://www.youtube.com/", group: "social", mark: "YT" },
-  { title: "Telegram", href: "https://web.telegram.org/", group: "social", mark: "TG" },
-  { title: "WhatsApp", href: "https://web.whatsapp.com/", group: "social", mark: "WA" },
-  { title: "Facebook", href: "https://www.facebook.com/", group: "social", mark: "f" },
-  { title: "Bluesky", href: "https://bsky.app/", group: "social", mark: "BS" },
-  { title: "Mastodon", href: "https://mastodon.social/", group: "social", mark: "M" }
+  { title: "GitHub", href: "https://github.com/Aparsa40", group: "social", mark: "GH", icon: "/assets/icons/social/github.png" },
+  { title: "LinkedIn", href: "https://linkedin.com/in/amir.hosein.parsa.motlagh", group: "social", mark: "in", icon: "/assets/icons/social/linkedin.png" },
+  { title: "X", href: "https://x.com/aparsa", group: "social", mark: "X", icon: "/assets/icons/social/X.png" },
+  { title: "Email", href: "mailto:parssynapse@gmail.com", group: "social", mark: "@", icon: "/assets/icons/social/email.png" }
 ];
 
 const aiTools = [
@@ -125,7 +135,7 @@ function shell(language: Language, content: string): string {
 <body class="home-page">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<a class="brand" href="/?lang=${language}" aria-label="NEXUS home"><span class="brand-symbol">N</span><span>NEXUS<span class="brand-dot">.</span></span></a>
+<a class="brand" href="/?lang=${language}" aria-label="NEXUS home"><img class="brand-logo" src="/assets/brand/nexus-logo.png" alt="NEXUS" width="156" height="52"></a>
 <nav class="main-nav" aria-label="Main navigation">
 <a href="#ecosystem">${t.nav[0]}</a><a href="#projects">${t.nav[1]}</a><a href="#learning">${t.nav[2]}</a><a href="#about">${t.nav[3]}</a>
 </nav>
@@ -135,7 +145,7 @@ function shell(language: Language, content: string): string {
 <div class="page-shell">${content}</div>
 </main>
 <footer class="site-footer">
-<a class="brand brand-small" href="/"><span class="brand-symbol">N</span><span>NEXUS<span class="brand-dot">.</span></span></a>
+<a class="brand brand-small" href="/" aria-label="NEXUS home"><img class="brand-logo brand-logo-footer" src="/assets/brand/nexus-logo.png" alt="NEXUS" width="130" height="44" loading="lazy"></a>
 <span>${t.footer}</span>
 <div class="footer-trust"><span>${language === "fa" ? "نماد اعتماد الکترونیکی" : "Verified business · Enamad"}</span><a href="https://trustseal.enamad.ir/?id=537474&Code=xnYUibfDjrs1zRYuHYDmaZGLmiFykpZF" aria-label="${language === "fa" ? "مشاهده نماد اعتماد الکترونیکی" : "View Enamad trust seal"}"><img src="https://trustseal.enamad.ir/logo.aspx?id=537474&Code=xnYUibfDjrs1zRYuHYDmaZGLmiFykpZF" alt="${language === "fa" ? "نماد اعتماد الکترونیکی" : "Enamad trust seal"}" loading="lazy"></a></div>
 <div class="footer-links"><a href="/terms?lang=${language}">${language === "fa" ? "شرایط استفاده" : "Terms"}</a><a href="/privacy?lang=${language}">${language === "fa" ? "حریم خصوصی" : "Privacy"}</a><a href="https://github.com/Aparsa40/NEXUS-Website" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
@@ -153,9 +163,9 @@ export function renderNexusHome(language: Language): string {
       </a>
     </article>`).join("");
 
-  const renderLinks = (items: typeof social) => items.map((item) => `
-    <a class="platform-link searchable" href="${item.href}" target="_blank" rel="noopener noreferrer" data-search="${escapeHtml(item.title)}" aria-label="${escapeHtml(item.title)} — official website">
-      <span class="platform-mark">${item.mark}</span><span>${item.title}</span><span class="platform-arrow" aria-hidden="true">↗</span>
+  const renderLinks = (items: Array<{ title: string; href: string; group: string; mark: string; icon?: string }>) => items.map((item) => `
+    <a class="platform-link searchable" href="${item.href}" ${item.href.startsWith("mailto:") ? "" : "target=\"_blank\" rel=\"noopener noreferrer\""} data-search="${escapeHtml(item.title)}" aria-label="${escapeHtml(item.title)}">
+      ${item.icon ? `<span class="platform-icon"><img src="${item.icon}" alt="" loading="lazy"></span>` : `<span class="platform-mark">${item.mark}</span>`}<span>${item.title}</span><span class="platform-arrow" aria-hidden="true">↗</span>
     </a>`).join("");
 
   const content = `
@@ -197,12 +207,32 @@ export function renderNexusHome(language: Language): string {
     <div class="platform-group"><h3>${t.socialsTitle}</h3><div class="platform-grid">${renderLinks(social)}</div></div>
     <div class="platform-group"><h3>${t.aiTitle}</h3><div class="platform-grid">${renderLinks(aiTools)}</div></div>
   </div>
-  <p class="platform-note">${language === "fa" ? "پیوندهای شبکه‌های اجتماعی فعلاً به وب‌سایت رسمی پلتفرم‌ها می‌روند؛ پس از دریافت نشانی پروفایل‌ها، به حساب‌های عمومی خودت متصل می‌کنیم." : "Social shortcuts currently open each platform’s official website. Personal profile URLs can be added once provided."}</p>
+  <p class="platform-note">${language === "fa" ? "این پیوندها به حساب‌ها و راه‌های ارتباطی عمومی متصل هستند." : "These shortcuts lead to public profiles and contact channels."}</p>
 </section>
 
 <section class="about-panel" id="about">
   <div><p class="eyebrow">${t.aboutEyebrow}</p><h2>${t.aboutTitle}</h2></div>
-  <div><p>${t.aboutText}</p><a class="text-link" href="https://github.com/Aparsa40" target="_blank" rel="noopener noreferrer" aria-label="${t.contact}">${t.contact} <span aria-hidden="true">↗</span></a></div>
-</section>`;
+  <div><p>${t.aboutText}</p><button class="text-link about-open" type="button" data-about-open>${t.contact} <span aria-hidden="true">↗</span></button></div>
+</section>
+
+<dialog class="about-dialog" id="about-dialog" aria-labelledby="about-dialog-title">
+  <div class="about-dialog-header">
+    <span class="eyebrow">\${t.aboutEyebrow}</span>
+    <button class="dialog-close" type="button" data-about-close aria-label="\${t.aboutClose}">×</button>
+  </div>
+  <div class="about-dialog-body">
+    <img class="about-dialog-logo" src="/assets/brand/nexus-symbol.png" alt="" width="76" height="76">
+    <p class="about-role">\${t.aboutRole}</p>
+    <h2 id="about-dialog-title">\${language === "fa" ? "سلام، من امیر پارسا هستم." : "Hello, I’m Amir Parsa."}</h2>
+    <p>\${t.aboutBio}</p>
+    <p>\${t.aboutApproach}</p>
+    <div class="about-dialog-actions">
+      <a class="button button-primary" href="mailto:parssynapse@gmail.com">\${t.aboutEmail}<span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="https://linkedin.com/in/amir.hosein.parsa.motlagh" target="_blank" rel="noopener noreferrer">\${t.aboutProfile}<span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="dialog-hint">\${t.aboutCloseHint}</p>
+  </div>
+</dialog>
+`;
   return shell(language, content);
 }
